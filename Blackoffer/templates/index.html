@@ -1,0 +1,96 @@
+{% extends 'partials/base.html' %}
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+
+<div class="container" style="margin-bottom: 10px;">
+    <h1 class="text-center">Data Visualization Dashboard</h1>
+
+    <form id="filter-form" class="shadow-lg p-1 mb-3 bg-white rounded">
+        <div class="form-row align-items-center">
+            <div class="row ">
+                <div class="col-sm-3 ">
+                    <label for="end_year">Filter by end year</label>
+                    <input id="end_year"class="form-control" placeholder="end year">
+                </div>
+                <div class="col-sm-3 ">
+                    <label for="filter_topic">Filter by topic</label>
+                    <input id="filter_topic" class="form-control"placeholder="topic">
+                </div>
+                <div class="col-sm-3 ">
+                    <label for="filter_sector">Filter by sector</label>
+                    <input id="filter_sector"class="form-control" placeholder="sector">
+                </div>
+                <div class="col-sm-3 ">
+                    <label for="filter_region">Filter by region</label>
+                    <input id="filter_region" class="form-control"placeholder="region">
+                </div>  
+            </div>
+            <div class="row">
+                <div class="col-sm-3 ">
+                    <label for="filter_pestle">Filter by pestle</label>
+                    <input id="filter_pestle" class="form-control"placeholder="pestle">
+                </div>
+                <div class="col-sm-3 ">
+                    <label for="filter_source">Filter by source</label>
+                    <input id="filter_source"class="form-control" placeholder="source">
+                </div>
+                <div class="col-sm-3 ">
+                    <label for="filter_country">Filter by country</label>
+                    <input id="filter_country"class="form-control" placeholder="country">
+                </div>
+                <div class="col-sm-3 ">
+                    <small class="form-text text-muted">*Enter values for only desired filter else leave blank</small>
+                    <button type="submit" class="btn btn-success mb-2">Filter</button>
+                    <button id="clear"class="btn btn-danger mb-2"> Clear Filters</button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <div class="row mt-5 pt-3">
+        <div class="col-md-6">
+            <h2 class="text-center">
+                intensity/relevance/impact/likelihood by Volume
+            </h2>
+            <canvas id="myChart"  width="400" height="300"></canvas>
+        </div>
+        <div class="col-md-6">
+            <h2 class="text-center">
+                Sectors by volume
+            </h2>
+            <canvas id="sector" width="400" height="300"></canvas>
+            
+        </div>
+    </div>
+    <div class="row mt-5 pt-3">
+        <div class="col-md-5 pt-3 ">
+            <h2 class="text-center">
+                Country by volume
+            </h2>
+            <div id="map" style="width: 500px; height: 300px;"></div>
+            
+        </div>
+        <div class="col-md-7 ">
+            <h2 class="text-center">
+                Topic by Volume
+            </h2>
+            <canvas id="topic" >
+                
+            </canvas>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-md-7 ">
+            <h2 class="text-center">
+                Region by Volume
+            </h2>
+            <canvas id="region" >
+                
+            </canvas>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
